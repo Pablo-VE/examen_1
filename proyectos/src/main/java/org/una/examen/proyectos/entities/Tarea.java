@@ -22,6 +22,7 @@ import javax.persistence.TemporalType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -33,11 +34,15 @@ import lombok.ToString;
 @Table(name = "exa_pve_tareas")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Tarea implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(length = 20, nullable = false)
+    private String nombre;
     
     @Column(length = 200)
     private String descipcion;

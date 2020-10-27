@@ -23,6 +23,7 @@ import javax.persistence.TemporalType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -34,6 +35,7 @@ import lombok.ToString;
 @Table(name = "exa_pve_proyectos")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Proyecto implements Serializable{
     @Id
@@ -61,4 +63,6 @@ public class Proyecto implements Serializable{
     public void prePersist() {
         fechaRegistro = new Date();
     }
+    
+    
 }
