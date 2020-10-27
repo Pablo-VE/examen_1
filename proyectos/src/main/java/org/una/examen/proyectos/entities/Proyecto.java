@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,13 +40,13 @@ public class Proyecto implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(length = 20)
+    @Column(length = 20, nullable = false)
     private String nombre;
     
     @Column(length = 200)
     private String descipcion;
     
-    @Column(length = 50)
+    @Column(length = 50, nullable = false)
     private String responsable;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "proyecto") 
@@ -55,4 +56,9 @@ public class Proyecto implements Serializable{
     @Temporal(TemporalType.TIMESTAMP)
     @Setter(AccessLevel.NONE)
     private Date fechaRegistro;
+    
+    @PrePersist
+    public void prePersist() {
+        fechaRegistro = new Date();
+    }
 }
