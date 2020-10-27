@@ -8,6 +8,7 @@ package org.una.examen.proyectos.services;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.una.examen.proyectos.util.MapperUtils;
 import org.una.examen.proyectos.util.ServiceConvertionHelper;
@@ -19,6 +20,7 @@ import org.una.examen.proyectos.repositories.IProyectoRepository;
  *
  * @author Pablo-VE
  */
+@Service
 public class ProyectoServiceImplementation implements IProyectoService{
     @Autowired
     private IProyectoRepository proyectoRepository;
