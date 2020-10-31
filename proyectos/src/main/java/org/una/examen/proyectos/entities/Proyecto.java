@@ -42,7 +42,7 @@ public class Proyecto implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(length = 20, nullable = false)
+    @Column(length = 50, nullable = false)
     private String nombre;
     
     @Column(length = 200)
